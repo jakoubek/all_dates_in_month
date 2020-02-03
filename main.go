@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"time"
+
+	"github.com/jakoubek/dates"
 )
 
 func main() {
@@ -26,16 +27,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	startDate := date(year, month, 1)
-	endDate := date(year, month, 31)
+	startDate, _ := dates.GetDateFirstOfMonth(year, month)
+	endDate, _ := dates.GetDateLastOfMonth(year, month)
 
 	pattern += "\n"
 	for d := startDate; d.After(endDate) == false; d = d.AddDate(0, 0, 1) {
 		fmt.Printf(pattern, d.Format("2006-01-02"))
 	}
 
-}
-
-func date(year, month, day int) time.Time {
-	return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
 }
