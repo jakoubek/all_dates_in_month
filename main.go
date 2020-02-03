@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/jakoubek/dates"
 )
@@ -19,12 +20,9 @@ func main() {
 			pattern = os.Args[3]
 		}
 	} else {
-		fmt.Println("Year/month is missing.")
-		fmt.Println("Usage:")
-		fmt.Println("  all_dates_in_month 2020 6")
-		fmt.Println("or")
-		fmt.Println("  all_dates_in_month 2020 6 \"* %s\"")
-		os.Exit(1)
+		var monthMonth time.Month
+		year, monthMonth, _ = time.Now().Date()
+		month = int(monthMonth)
 	}
 
 	startDate, _ := dates.GetDateFirstOfMonth(year, month)
