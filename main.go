@@ -17,7 +17,7 @@ func main() {
 	if len(os.Args) >= 3 {
 		year, _ = strconv.Atoi(os.Args[1])
 		month, _ = strconv.Atoi(os.Args[2])
-		if len(os.Args) == 4 {
+		if len(os.Args) >= 4 {
 			pattern = os.Args[3]
 		}
 		if len(os.Args) == 5 {
