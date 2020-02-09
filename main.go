@@ -13,11 +13,15 @@ func main() {
 
 	var year, month int
 	var pattern string = "* [[%s]] "
+	var dateFormat string = "2006-01-02"
 	if len(os.Args) >= 3 {
 		year, _ = strconv.Atoi(os.Args[1])
 		month, _ = strconv.Atoi(os.Args[2])
 		if len(os.Args) == 4 {
 			pattern = os.Args[3]
+		}
+		if len(os.Args) == 5 {
+			dateFormat = os.Args[4]
 		}
 	} else {
 		var monthMonth time.Month
@@ -30,7 +34,7 @@ func main() {
 
 	pattern += "\n"
 	for d := startDate; d.After(endDate) == false; d = d.AddDate(0, 0, 1) {
-		fmt.Printf(pattern, d.Format("2006-01-02"))
+		fmt.Printf(pattern, d.Format(dateFormat))
 	}
 
 }
