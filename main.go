@@ -36,7 +36,8 @@ func main() {
 	pattern += "\n"
 	for d := startDate; d.After(endDate) == false; d = d.AddDate(0, 0, 1) {
 		if strings.Count(pattern, "%s") > 1 {
-			fmt.Printf(pattern, d.Format(dateFormat), AbbrWeekday(int(d.Weekday())))
+			weekday, _ := dates.GetAbbrWeekdayNameGerman(d.Weekday())
+			fmt.Printf(pattern, d.Format(dateFormat), weekday)
 		} else {
 			fmt.Printf(pattern, d.Format(dateFormat))
 		}

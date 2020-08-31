@@ -1,2 +1,4 @@
 github.com/jakoubek/dates v0.0.0-20200203123840-d9e94b61b198 h1:rsRlqOrplajrH39oHuAkO4Kk9/6cw3Rs92t+D7ob1Uo=
 github.com/jakoubek/dates v0.0.0-20200203123840-d9e94b61b198/go.mod h1:98P8itMlq+x7iuQVEZbCaLzosrUJW4KOzamegxe/I5s=
+github.com/jakoubek/dates v0.1.0 h1:QBbjqIhehb9WEamoJ7MV7l42TNBASRrDN8DpPa3rQ5g=
+github.com/jakoubek/dates v0.1.0/go.mod h1:98P8itMlq+x7iuQVEZbCaLzosrUJW4KOzamegxe/I5s=
