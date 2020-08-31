@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/jakoubek/dates"
@@ -34,7 +35,32 @@ func main() {
 
 	pattern += "\n"
 	for d := startDate; d.After(endDate) == false; d = d.AddDate(0, 0, 1) {
-		fmt.Printf(pattern, d.Format(dateFormat))
+		if strings.Count(pattern, "%s") > 1 {
+			fmt.Printf(pattern, d.Format(dateFormat), AbbrWeekday(int(d.Weekday())))
+		} else {
+			fmt.Printf(pattern, d.Format(dateFormat))
+		}
 	}
 
+}
+
+func AbbrWeekday(weekday int) string {
+	var abbrWeekday string
+	switch weekday {
+	case 0:
+		abbrWeekday = "So"
+	case 1:
+		abbrWeekday = "Mo"
+	case 2:
+		abbrWeekday = "Di"
+	case 3:
+		abbrWeekday = "Mi"
+	case 4:
+		abbrWeekday = "Do"
+	case 5:
+		abbrWeekday = "Fr"
+	case 6:
+		abbrWeekday = "Sa"
+	}
+	return abbrWeekday
 }
